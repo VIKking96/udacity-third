@@ -12,7 +12,7 @@
     "dev": "ts-node --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy udagram-api-dev && eb setenv AWS_BUCKET=$AWS_BUCKET POSTGRES_DB=$POSTGRES_DB POSTGRES_PASSWORD=$POSTGRES_PASSWORD AWS_PROFILE=$AWS_PROFILE PORT=$PORT DB_PORT=$DB_PORT AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_REGION=$AWS_REGION JWT_SECRET=$JWT_SECRET POSTGRES_HOST=$POSTGRES_HOST URL=$URL POSTGRES_USERNAME=$POSTGRES_USERNAME AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY",
+    "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy udagram-api-dev",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && bestzip ../ahmed.zip * && cd .."
   },
   "keywords": [],
